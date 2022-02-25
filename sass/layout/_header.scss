@@ -1,0 +1,385 @@
+@use "../base" as *;
+@use "../abstract" as *;
+
+
+body
+{
+    font-family: $font-primary;
+    font-size: $size-primary;
+    color: $very-dark-grayish-blue;
+    width: 100%;
+
+    @include responsive(movil-S)
+    {
+        width: 104%;
+    }
+
+}
+
+.header
+{
+    background: url(/images/bg-pattern-intro-mobile.svg)no-repeat left -330px top -250px, linear-gradient($very-light-red, $light-red);
+    height: 90vh;
+    border-radius: 0 0 0 80px;
+    text-align: center;
+    color: $white;
+    padding: 0 2.5em;
+
+    @include responsive(portatil)
+    {
+        background: url(/images/bg-pattern-intro-mobile.svg)no-repeat center left -400px, linear-gradient($very-light-red, $light-red);
+        background-size: 150rem;
+        height: 80vh;
+    }
+
+    &__images
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2em 0em;
+        position: relative;
+
+        @include responsive(portatil)
+        {
+            padding: 2em 4em;
+        }
+    }
+
+    &__logo
+    {
+        @include responsive(portatil)
+        {
+            transform: translateY(-.1em);
+        }
+    }
+
+    &__hamburguer
+    {
+        cursor: pointer;
+        position: absolute;
+        right: 0em;
+    }
+
+    .fa-bars
+    {
+
+        &:hover
+        {
+            transform: rotate(-45deg);
+            transition: all .5s ease-in-out;
+        }
+
+        @include responsive(portatil)
+        {
+            display: none;
+        }
+
+    }
+
+//nav-start
+
+    &__infomations
+    {
+        display: block;
+        list-style: none;
+        background: $white;
+        width: 88%;
+        height: auto;
+        border-radius: 5px;
+        margin: auto;
+        font-family: $font-secondary;
+        cursor: pointer;
+        position: absolute;
+        top: 7em;
+        box-shadow: 0 10px 20px rgba($color: $very-dark-black-blue, $alpha: .2); 
+        transition: all .3s ease-in-out;
+        display: none;
+        
+        &.expand
+        {
+            display: block;
+            animation: fadeIn 1s;
+        }
+
+        @include responsive(portatil)
+        {
+            display: block;
+            width: 400px;
+            left: 25em; top: 2.5em;
+            background: none;
+            height: auto;
+            transform: translate(-50%, 50%);
+            box-shadow: none;
+            clip-path: none;
+        }
+    }
+
+    &__icon
+    {
+        filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(900%) contrast(0.8);
+        transition: all .5s ease-in-out;
+        margin-left: .3em;
+
+        @include responsive(portatil)
+        {
+            filter: brightness(0) invert(1);
+        }
+
+        &.rotate
+        {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__information
+    {
+         transform: translate(-.5em, .5em);
+         padding: 1em 0;
+         
+        @include responsive(portatil)
+        {
+            float: left;
+            margin: 0 1.5em;
+            transform: translate(0);
+            padding: 0;
+        }
+    }
+
+    &__linkin
+    {  
+        color: $very-dark-desaturated-blue;
+        font-weight: map-get($weights-secondary, medium);
+        font-size: 18px;
+
+        @include responsive(portatil)
+        {
+            color: $white;
+            font-size: inherit;
+
+            &:hover
+            {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__options
+    {
+        list-style: none;
+        padding: 1em; 
+        background-color: rgba($color: $grayish-blue, $alpha: .2);
+        border-radius: 3px;
+        margin-top: 1.5em;
+        transform: translateX(-.8em);
+        z-index: -1;
+        display: none;
+        
+        @include responsive(portatil)
+        {
+            background-color: $white;
+            position: absolute;
+            min-width: 150px;
+            top: 4em; 
+            border-radius: 7px;
+            margin-top: 0;
+            transform: translateX(-2em);
+        }
+
+        &.active
+        {
+            display: block;
+            animation: fadeIn 1s;
+            z-index: 1;
+        }
+    }
+
+    @keyframes fadeIn 
+    {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    &__option
+    {
+        line-height: 2;
+        transform: translateX(.5em);
+        
+        @include responsive(portatil)
+        {
+            text-align: start;
+            padding: 1em;
+            line-height: 1;
+            transform: translateX(0);
+        }
+
+        &-link
+        {
+            text-decoration: none;
+            color: $very-dark-grayish-blue;
+
+                &:hover
+                    {
+                        color: $very-dark-black-blue;
+                    }
+        }
+    }
+
+    hr
+    {
+        height: 1px;
+        background: rgba($color: $grayish-blue, $alpha: .6);
+        border: none;
+        transform: translate(-1.2em, 1em);
+        
+        @include responsive(portatil)
+        {
+            display: none;
+        }
+    }
+
+    &__login
+    {
+        display: block;
+        transform: translate(-2em, 1em);
+        padding: 1.2em 0;
+
+        &--mb
+        {
+            margin-bottom: 2em;
+        }
+
+        @include responsive(portatil)
+        {
+            display: none;
+        }
+    }
+
+    &__item
+    {
+        text-decoration: none;
+        font-family: $font-primary;
+        color: $very-dark-desaturated-blue;
+        font-weight: map-get($weights-primary, semi-bold);
+        font-size: 18px;
+
+        &--signUp
+        {
+            font-family: $font-secondary;
+            font-weight: map-get($weights-secondary, medium);
+            background: linear-gradient($very-light-red, $light-red);
+            color: $white;
+            padding: .8em 2em;
+            border-radius: 30px;
+        }
+    }
+
+//nav-end
+    
+    &__register
+    {
+        display: none;
+
+        @include responsive(portatil)
+        {
+            display: block;
+            display: inline-block;
+            margin: 0 .7em;
+            transform: translateY(0em);
+        }
+    }
+
+    &__link
+    {
+        text-decoration: none;
+        color: $white;
+
+        &-signUp
+        {
+            background-color: $white;
+            color: $very-light-red--s;
+            font-family: $font-secondary;
+            font-weight: map-get($weights-secondary, bold);
+            padding: .7em 1.5em;
+            border-radius: 20px;
+
+            &:hover
+            {
+                background-color: $very-light-red--s;
+                color: $white;
+            }
+        }
+    }
+
+    &__title
+    {
+        margin-top: 3em;
+        font-weight: map-get($weights-primary, semi-bold);
+
+        @include responsive(movil-S)
+        {
+            margin-top: 2.5em;
+            font-size: 28px;
+        }
+
+        @include responsive(portatil)
+        {
+            font-size: 40px;
+            margin-top: 2em;
+        }
+    }
+
+    &__text
+    {
+        color: $grayish-blue;
+        font-weight: map-get($weights-primary, light);
+
+        @include responsive(movil-S)
+        {
+            font-size: 16px;
+        }
+
+        @include responsive(portatil)
+        {
+            font-size: 16px;
+        }
+    }
+
+    &__button
+    {
+        display: inline-block;
+        background-color: $white;
+        border: none; outline: none;
+        color: $light-red;
+        font-family: $font-secondary;
+        font-weight: map-get($weights-secondary, bold);
+        padding: .8em 1em;
+        border-radius: 25px;
+        margin: 2em .5em 0;
+        cursor: pointer;
+
+        @include responsive(movil-S)
+        {
+            margin: 1em 1em 0;          
+        }
+
+        &:hover
+        {
+            background-color: $very-light-red--s;
+            color: $white;
+        }
+
+        &-secondary
+        {
+            background-color: transparent;
+            color: $white;
+            border: 1px solid $white;
+
+            &:hover
+            {
+                background-color: $white;
+                color: $light-red;
+            }
+        }
+    }
+}

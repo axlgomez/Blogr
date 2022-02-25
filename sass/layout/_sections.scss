@@ -1,0 +1,242 @@
+@use "../base" as *;
+@use "../abstract" as *;
+
+
+.blogr
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 4em;
+    overflow: hidden;
+
+    @include responsive(portatil)
+    {
+        margin-top: 1em;
+    }
+}
+
+.design
+{
+
+    &__title
+    {
+        color: $very-dark-blue;
+
+        @include responsive(portatil)
+        {
+            font-size: 26px;
+            margin-top: 3em;
+        }
+
+        &-secondary
+        {
+            padding: 0 2em;
+
+            @include responsive(portatil)
+            {
+                padding-left: 1.7em;
+                font-size: 20px;
+            }
+        }
+    }
+
+    &__desktop
+    {
+        @include responsive(portatil)
+        {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__illustration
+    {
+        width: 100%;
+        margin-top: 1em;
+
+        @include responsive(tablet)
+        {
+            width: 80%;
+        }
+
+        @include responsive(portatil)
+        {
+            display: none;
+        }
+    }
+
+    &__illustrationDesktop
+    {
+        display: none;
+
+        @include responsive(portatil)
+        {
+            display: block;
+            width: 42rem;
+            transform: translate(12em, -6.5em);
+        }
+    }
+
+    &__content
+    {
+        @include responsive(portatil)
+        {
+            text-align: start;
+            transform: translate(4em, -1em);
+        }
+    }
+
+    &__text
+    {
+        padding: 0 2.5em;
+        line-height: 1.5;
+        margin-bottom: 2.5em;
+
+        &-mb
+        {
+            margin-bottom: 15em;
+        }
+
+        @include responsive(portatil)
+        {
+            font-size: 14px;
+        }
+
+    }
+}
+
+.infrastructure
+{
+    background: url(/images/bg-pattern-circles.svg)no-repeat left -105px bottom 200px, linear-gradient($very-dark-black-blue, $very-dark-desaturated-blue);
+    background-size: cover;
+    border-radius: 0 80px 0;
+    color: $white;
+    height: 90vh;
+
+    @include responsive(portatil)
+    {
+        background: url(/images/bg-pattern-circles.svg)no-repeat bottom left -100px, linear-gradient($very-dark-black-blue, $very-dark-desaturated-blue);
+        background-size: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 45vh;
+        transform: translateY(-2em);
+    }
+
+    &__illustration
+    {
+        width: 21em;
+        transform: translateY(-11em);
+
+        @include responsive(tablet)
+        {
+            width: 25em;
+            transform: translateY(-12em);
+        }
+        @include responsive(portatil)
+        {
+            transform: translate(4em, 1em);
+        }
+    }
+
+    &__content
+    {
+        transform: translateY(-11em);
+
+        @include responsive(portatil)
+        {
+            transform: translate(0);
+            text-align: start;
+            margin-left: 5em;
+            transform: translateX(-1em);
+        }
+    }
+
+    &__title
+    {
+        
+        @include responsive(portatil)
+        {
+            margin-left: 1.2em;
+        }
+    }
+
+    &__text
+    {
+        padding: 0 3em;
+        line-height: 1.7;
+
+        @include responsive(portatil)
+        {
+            font-size: 14px;
+        }
+    }
+}
+
+.application
+{
+    margin-top: 3.5em;
+
+    @include responsive(portatil)
+    {
+        display: flex;
+        margin-bottom: 3em;
+    }
+
+    &__illustration
+    {
+        width: 100%;
+
+        @include responsive(portatil)
+        {
+            display: none;
+        }
+    }
+
+    &__illustrationDesk
+    {
+        display: none;
+
+        @include responsive(portatil)
+        {
+            display: block;
+            width: 42rem;
+            transform: translateX(-12em);
+        }
+    }
+
+    &__content
+    {
+        
+        @include responsive(portatil)
+        {
+            text-align: start;
+            transform: translate(-8em, 7em);
+        }
+    }
+
+    &__title
+    {
+        color: $very-dark-blue;
+    }
+
+    &__text
+    {
+        padding: 0 2.5em;
+        line-height: 1.7;
+        margin-bottom: 3em;
+
+        @include responsive(portatil)
+        {
+            transform: translateX(-2.5em);
+            font-size: 14px;
+            width: 110%;
+        }
+    }
+}
